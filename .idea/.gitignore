@@ -1,0 +1,12 @@
+# Existing ignore rules
+/shelf/
+/workspace.xml
+/httpRequests/
+/dataSources/
+/dataSources.local.xml
+
+# Project-specific ignore rules
+node_modules/
+.env
+*.log
+
