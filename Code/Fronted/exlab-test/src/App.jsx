@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import { addNumbers } from "./api";
+import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [num1, setNum1] = useState("");
+    const [num2, setNum2] = useState("");
+    const [result, setResult] = useState(null);
+    const [error, setError] = useState(null);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            setError(null);
+            const data = await addNumbers(Number(num1), Number(num2));
+            setResult(data.result);
+        } catch (err) {
+            setError("Failed to calculate. Please try again.");
+        }
+    };
+
+    return (
+        <div className="container mt-5">
+            <div className="card shadow p-4">
+                <h1 className="text-center text-primary">Sum Calculator</h1>
+                <form onSubmit={handleSubmit} className="mt-4">
+                    <div className="mb-3">
+                        <label htmlFor="num1" className="form-label">First Number</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="num1"
+                            value={num1}
+                            onChange={(e) => setNum1(e.target.value)}
+                            placeholder="Enter first number"
+                            required
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="num2" className="form-label">Second Number</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="num2"
+                            value={num2}
+                            onChange={(e) => setNum2(e.target.value)}
+                            placeholder="Enter second number"
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary w-100">Calculate</button>
+                </form>
+                {error && <p className="alert alert-danger mt-4">{error}</p>}
+                {result !== null && <p className="alert alert-success mt-4">Result: {result}</p>}
+            </div>
+        </div>
+    );
 }
 
-export default App
+export default App;

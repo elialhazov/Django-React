@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',  # שם האפליקציה החדשה
+    'rest_framework',  # Django REST Framework
 ]
+
 
 
 
@@ -79,10 +81,15 @@ WSGI_APPLICATION = 'myserver.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'myproject_db',        # שם מסד הנתונים
+        'USER': 'root',              # שם המשתמש
+        'PASSWORD': '77645213a',          # סיסמת המשתמש
+        'HOST': 'localhost',             # מארח MySQL
+        'PORT': '3306',                  # פורט MySQL
     }
 }
+
 
 
 # Password validation
