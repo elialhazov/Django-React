@@ -5,4 +5,4 @@ from .models import Color
 class ColorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Color
-        fields = ['name', 'hex_value']  # עדכון השדות לשמות הנכונים במודל
+        fields = ['name', 'hex_value']

@@ -19,10 +19,10 @@ from django.urls import path
 from myapp.views import GenerateNewColor, home_view, add_numbers
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # דף מנהל
-    path('colors/generate-new-color', GenerateNewColor.as_view(), name='generate_new_color'),  # יצירת צבע
-    path('add-numbers/', add_numbers, name='add_numbers'),  # חישוב סכום
-    path('', home_view, name='home'),  # דף הבית
+    path('admin/', admin.site.urls),
+    path('colors/generate-new-color', GenerateNewColor.as_view(), name='generate_new_color'),
+    path('add-numbers/', add_numbers, name='add_numbers'),
+    path('', home_view, name='home'),
 ]
 
 
