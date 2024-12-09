@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2016",                     /* גרסת ה-JavaScript שהקוד יתורגם אליה */
+    "lib": ["ES2016", "DOM"],               /* תמיכה ב-Promise וב-API של הדפדפן */
+    "jsx": "react-jsx",                     /* תמיכה ב-JSX עם React */
+
+    /* Modules */
+    "module": "ESNext",                     /* סוג המודול שייווצר */
+    "moduleResolution": "Node",             /* איך TypeScript מחפש קבצים */
+    "esModuleInterop": true,                /* תמיכה בייבוא של מודולים מסוג CommonJS */
+    "forceConsistentCasingInFileNames": true, /* הקפדה על אותיות גדולות וקטנות בנתיבים */
+    "skipLibCheck": true,                   /* דילוג על בדיקת טיפוסים בקבצי .d.ts */
+
+    /* Strict Type Checking */
+    "strict": true                          /* הפעלת כל בדיקות הטיפוסים הקפדניות */
+  },
+  "include": ["src"],                       /* כלול את כל הקבצים בתיקיית src */
+  "exclude": ["node_modules", "dist"]       /* אל תכלול את התיקיות האלו */
+}

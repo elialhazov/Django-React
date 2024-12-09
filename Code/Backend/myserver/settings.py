@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'myserver.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myproject_db',        # שם מסד הנתונים
-        'USER': 'root',              # שם המשתמש
-        'PASSWORD': '77645213a',          # סיסמת המשתמש
+        'NAME': 'myproject_db',
+        'USER': 'root',
+        'PASSWORD': '77645213a',
         'HOST': 'localhost',             # מארח MySQL
         'PORT': '3306',                  # פורט MySQL
     }
